@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supplier Management App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Supplier Management</h1>
+  <form id="supplier-form">
+    <input type="text" placeholder="Supplier Name" id="nume" required />
+    <input type="text" placeholder="Tax Code" id="cui" />
+    <input type="text" placeholder="Registration Number (RC)" id="rc" />
+    <input type="text" placeholder="Address" id="adresa" />
+    <input type="text" placeholder="City" id="localitate" />
+    <input type="text" placeholder="Country" id="tara" />
+    <input type="text" placeholder="Contact Person" id="contact" />
+    <input type="email" placeholder="Email" id="email" />
+    <input type="tel" placeholder="Phone" id="telefon" />
+    <input type="text" placeholder="Payment Terms" id="plata" />
+    <input type="text" placeholder="Supplied Product Category" id="categorie" />
+    <input type="text" placeholder="IBAN" id="iban" />
+    <input type="text" placeholder="Bank" id="banca" />
+    <textarea placeholder="Notes" id="observatii"></textarea>
+    <button type="submit">Add / Update</button>
+  </form>
+
+  <table id="suppliers-table">
+    <thead>
+      <tr>
+        <th>Name</th><th>Tax Code</th><th>Reg. No.</th><th>Address</th><th>City</th><th>Country</th>
+        <th>Contact</th><th>Email</th><th>Phone</th><th>Payment</th><th>Category</th>
+        <th>IBAN</th><th>Bank</th><th>Notes</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <button id="export">Export CSV</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
