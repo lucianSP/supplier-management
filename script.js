@@ -90,13 +90,20 @@ function exportToCSV() {
     "Contact Person", "Email", "Phone", "Payment Terms", "Product Category",
     "IBAN", "Bank", "Notes"
   ];
-  
+
   const rows = suppliers.map(s => [
     s.nume, s.cui, s.rc, s.adresa, s.localitate, s.tara, s.contact, s.email,
     s.telefon, s.plata, s.categorie, s.iban, s.banca, s.observatii
   ]);
 
-  const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
+  const csvContent = [headers, ...rows].map(row => 
+    row.map(field => {
+      if (typeof field === "string") {
+        field = field.replace(/"/g, '""'); // escape ghilimelele din interior
+      }
+      return `"${field}"`; // fiecare câmp între "..."
+    }).join(",")
+  ).join("\n");
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement("a");
@@ -105,8 +112,8 @@ function exportToCSV() {
   link.click();
 }
 
-
 exportBtn.addEventListener("click", exportToCSV);
 
 renderTable();
+
 
